@@ -1,22 +1,19 @@
 type Task = {
   text: string;
-
   completed: boolean;
 };
 
 type TargetListProps = {
   tasks: Task[];
-
   toggleTask: (index: number) => void;
 };
 
 function TargetList({
   tasks,
-
   toggleTask,
 }: TargetListProps) {
   return (
-    <div>
+    <div className="card">
       <h3>Today's Targets</h3>
 
       <ul>
@@ -25,7 +22,9 @@ function TargetList({
             <input
               type="checkbox"
               checked={task.completed}
-              onChange={() => toggleTask(index)}
+              onChange={() =>
+                toggleTask(index)
+              }
             />
 
             {task.text}

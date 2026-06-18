@@ -1,21 +1,27 @@
 type GoalCardProps = {
   goal: string;
-
   progress: number;
+  deadline: string;
 };
 
 function GoalCard({
   goal,
-
   progress,
+  deadline,
 }: GoalCardProps) {
   return (
-    <div>
-      <h2>{goal}</h2>
+    <div className="card">
+      <h2>{goal || "Enter your goal"}</h2>
 
-      <p>Deadline: 2026-12-31</p>
+      <p>
+        <strong>Deadline:</strong>{" "}
+        {deadline || "Not set"}
+      </p>
 
-      <p>Progress: {progress}%</p>
+      <p>
+        <strong>Progress:</strong>{" "}
+        {progress}%
+      </p>
     </div>
   );
 }
