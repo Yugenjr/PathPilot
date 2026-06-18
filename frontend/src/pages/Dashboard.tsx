@@ -4,19 +4,56 @@ import Navbar from "../components/Navbar";
 import GoalCard from "../components/GoalCard";
 import TargetList from "../components/TargetList";
 
+type Task = {
+  text: string;
+
+  completed: boolean;
+};
+
 function Dashboard() {
   const [goal, setGoal] = useState("");
 
   const [task, setTask] = useState("");
 
-  const [tasks, setTasks] = useState<string[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const totalTasks = tasks.length;
+
+const completedTasks = tasks.filter(
+  (task) => task.completed
+).length;
+
+const progress =
+  totalTasks === 0
+    ? 0
+    : Math.round(
+        (completedTasks / totalTasks) * 100
+      );
+
 
   function addTask() {
     if (task.trim() === "") return;
 
-    setTasks([...tasks, task]);
+    setTasks([
+      ...tasks,
+
+      {
+        text: task,
+
+        completed: false,
+      },
+    ]);
 
     setTask("");
+  }
+
+  function toggleTask(index: number) {
+    const updatedTasks = [...tasks];
+
+    updatedTasks[index].completed =
+      !updatedTasks[index].completed;
+
+    setTasks(updatedTasks);
   }
 
   return (
@@ -30,7 +67,10 @@ function Dashboard() {
         onChange={(e) => setGoal(e.target.value)}
       />
 
-      <GoalCard goal={goal} />
+      <GoalCard
+  goal={goal}
+  progress={progress}
+/>
 
       <hr />
 
@@ -43,9 +83,14 @@ function Dashboard() {
         onChange={(e) => setTask(e.target.value)}
       />
 
-      <button onClick={addTask}>Add</button>
+      <button onClick={addTask}>
+        Add
+      </button>
 
-      <TargetList tasks={tasks} />
+      <TargetList
+        tasks={tasks}
+        toggleTask={toggleTask}
+      />
     </>
   );
 }
