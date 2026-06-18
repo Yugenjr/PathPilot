@@ -1,12 +1,17 @@
-function GoalCard() {
+type GoalCardProps = {
+  goal: string;
+};
+
+function GoalCard({ goal }: GoalCardProps) {
   return (
     <div>
-      <h2>Become Full Stack Developer</h2>
+      <h2>{goal}</h2>
 
-      <p>Target Date: 2026-12-31</p>
+      <p>Deadline: 2026-12-31</p>
 
       <p>Progress: 25%</p>
     </div>
   );
 }
+
 export default GoalCard;
