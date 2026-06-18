@@ -1,17 +1,17 @@
-function TargetList() {
+type TargetListProps = {
+  tasks: string[];
+};
+function TargetList({ tasks }: TargetListProps) {
   return (
     <div>
       <h3>Today's Targets</h3>
 
       <ul>
-        <li>Learn React</li>
-
-        <li>Learn Fastify</li>
-
-        <li>Learn PostgreSQL</li>
+        {tasks.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
       </ul>
     </div>
   );
 }
-
 export default TargetList;
