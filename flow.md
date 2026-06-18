@@ -15,9 +15,13 @@ npm install fastify
 ------------------------------------------------------------------
 
 cd backend
-//create server.js
+//create server.ts
 
-node server.js
+node server.ts
 
 ------------------------------------------------------------------
+module method change
+created folders in frontend
+src/
 
+navbar update
