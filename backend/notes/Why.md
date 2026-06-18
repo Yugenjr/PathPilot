@@ -15,3 +15,11 @@ node_modules
 Why?
 
 It is the local folder where npm downloads and stores all the packages and their dependencies required for the project to run.
+
+------------------------------------------------------------------
+server.js
+
+This code creates a Fastify server, defines a route (/) and starts listening for requests on port 3000.
+
+------------------------------------------------------------------
+
