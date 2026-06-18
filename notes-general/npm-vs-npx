@@ -1,0 +1,93 @@
+npm  → Manager
+
+npx  → Executor
+
+More precisely:
+
+npm
+
+Installs, manages and runs packages that belong to your project.
+
+Examples:
+
+npm install fastify
+
+npm install react
+
+npm run dev
+
+Think:
+
+"I want this package to become part of my project."
+
+npx
+
+Executes a package, usually for one-time tasks.
+
+Examples:
+
+npx create-vite@latest
+
+npx prisma init
+
+npx tsc --init
+
+Think:
+
+"I just want to use this tool right now."
+
+Mental model
+npm
+
+↓
+
+Install package
+
+↓
+
+package.json
+
+↓
+
+package-lock.json
+
+↓
+
+node_modules
+
+----------------
+
+npx
+
+↓
+
+Download (if needed)
+
+↓
+
+Execute
+
+↓
+
+Done
+Quick examples from our PathPilot project
+
+Executor (npx)
+
+npx create-vite@latest
+
+npx tsc --init
+
+npx prisma init
+
+Manager (npm)
+
+npm install fastify
+
+npm install react
+
+npm install @prisma/client
+
+Tiny correction though:
+
+npm is both a manager and sometimes a runner.
