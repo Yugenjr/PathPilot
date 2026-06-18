@@ -25,3 +25,8 @@ created folders in frontend
 src/
 
 navbar update
+dashboard update
+
+------------------------------------------------------------------
+
+npm install @fastify/cors

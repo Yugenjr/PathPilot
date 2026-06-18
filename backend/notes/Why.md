@@ -23,3 +23,23 @@ This code creates a Fastify server, defines a route (/) and starts listening for
 
 ------------------------------------------------------------------
 
+GET
+app.get()
+
+means:
+
+Someone asks for data.
+
+/api/goal
+
+means:
+
+Endpoint.
+
+return
+
+means:
+
+Send JSON back.
+
+------------------------------------------------------------------

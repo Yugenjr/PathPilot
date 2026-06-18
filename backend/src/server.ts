@@ -1,21 +1,37 @@
 import Fastify from "fastify";
 
+import cors from "@fastify/cors";
+
+import goalRoutes from "./routes/goalRoutes";
+
 const app = Fastify();
 
 app.get("/", async () => {
   return {
-    message: "Backend is running",
+    message: "Backend running",
   };
 });
 
-app.listen({ port: 3000 }, (err) => {
-  if (err) {
+async function start() {
+  await app.register(cors, {
+    origin: "http://localhost:5173",
+  });
+
+  await app.register(goalRoutes);
+
+  try {
+    await app.listen({
+      port: 3000,
+    });
+
+    console.log(
+      "Server running on port 3000"
+    );
+  } catch (err) {
     console.error(err);
 
     process.exit(1);
   }
+}
 
-  console.log("Server running on port 3000");
-});
-
-//This code creates a Fastify server, defines a route (/) and starts listening for requests on port 3000.
+start();

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 import Navbar from "../components/Navbar";
 import GoalCard from "../components/GoalCard";
@@ -20,6 +20,23 @@ function Dashboard() {
   const [tasks, setTasks] = useState<
     Task[]
   >([]);
+  
+useEffect(() => {
+  async function getGoal() {
+    const response = await fetch(
+      "http://localhost:3000/api/goal"
+    );
+
+    const data = await response.json();
+    console.log(data);
+
+    setGoal(data.goal);
+
+    setDeadline(data.deadline);
+  }
+
+  getGoal();
+}, []);
 
   function addTask() {
     if (task.trim() === "") return;
